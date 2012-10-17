@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.6" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+tt {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+.monospaced {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_setting_up_xcode_for_native_ios_development">Setting up XCode for native iOS development</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This guide will help you to setup your development environment for aerogear, and then build a simple application to verify the installation. The guide assumes that you have XCode IDE installed in your machine. If not, you can download it from the Apple developer web site <a href="https://developer.apple.com/xcode">here</a>. Let&#8217;s get started.</p></div>
+<div class="sect2">
+<h3 id="_step_1_create_a_new_xcode_project">Step 1: Create a new Xcode Project</h3>
+<div class="paragraph"><p>Fire up Xcode and when presented with the welcome screen, choose "Create a new Xcode Project"</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dl.dropbox.com/u/155050/img/welcome-screen.png" alt="Welcome screen" />
+</div>
+</div>
+<div class="paragraph"><p>On the next screen, choose "Single-View Application"</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dl.dropbox.com/u/155050/img/new-project-wizard.png" alt="New Project" />
+</div>
+</div>
+<div class="paragraph"><p>Enter "AeroGearExample" in the Product Name field and "AG" as the class prefix. Leave the default options checked.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dl.dropbox.com/u/155050/img/project-details-screen.png" alt="Details" />
+</div>
+</div>
+<div class="paragraph"><p>Xcode creates our project and we are presented with the default project screen.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dl.dropbox.com/u/155050/img/main-project-screen.png" alt="Main Project Screen" />
+</div>
+</div>
+<div class="paragraph"><p>Now that our project is created, its time to install required dependencies.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_step_2_install_dependencies">Step 2: Install Dependencies</h3>
+<div class="paragraph"><p>Generally, there are two approaches to install dependencies. The first approach (and the preferred one) is to use <a href="http://cocoapods.org">CoccoaPods</a> dependency manager. If you haven&#8217;t use it so far in your iOS projects, please take the time to familiarize yourself. It will make your life much easier when dealing with dependencies (and upgrades!). Have a look at the <a href="http://cocoapods.org">web site</a> for installation details. The second approach, is to manually add the dependencies to the project. Both approaches are discussed in this guide, so peak the approach you are most familiar with.</p></div>
+<div class="sect3">
+<h4 id="_using_cocoapods">Using CocoaPods</h4>
+<div class="paragraph"><p>In the "Podfile", add the following lines:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>platform <span style="color: #990000">:</span>ios
+pod <span style="color: #FF0000">'AeroGear'</span><span style="color: #990000">,</span> <span style="color: #FF0000">'0.0.4'</span>
+pod <span style="color: #FF0000">'AFNetworking'</span><span style="color: #990000">,</span> <span style="color: #FF0000">'~&gt; 1.0'</span></tt></pre></div></div>
+<div class="paragraph"><p>And then:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>pod install</tt></pre></div></div>
+<div class="paragraph"><p>to install the dependencies. <strong>NOTE:</strong> Don&#8217;t forget to open the Xcode workspace file instead of the project file after this step.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_using_manual_process">Using manual Process</h4>
+<div class="paragraph"><p>We need to download both AFNetworking and the AeroGear libraries from their respective sources.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+For AFNetworking <a href="https://github.com/AFNetworking/AFNetworking/zipball/master">click here</a>
+</p>
+</li>
+<li>
+<p>
+For AeroGear <a href="https://github.com/aerogear/aerogear-ios/zipball/master">click here</a>.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Extract the zip archives and when finished, time to add them to our project.</p></div>
+<div class="paragraph"><p>First, we add AFNetworking. Click "File&#8594;Add files to AeroGearExample". In the dialog sheet that pops up, navigate to where AFNetworking code was extracted and select the AFNetworking folder</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dl.dropbox.com/u/155050/img/AFNetworking.png" alt="AFNetworking" />
+</div>
+</div>
+<div class="paragraph"><p>Make sure that "Copy items into destination group&#8217;s folder" and "Create Groups for any added folders" is checked.</p></div>
+<div class="paragraph"><p>Now time to add AeroGear library. Click again "File&#8594;Add files to AeroGearExample". In the dialog sheet that pops up, navigate to where AeroGear code was extracted and select the "AeroGear" folder.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dl.dropbox.com/u/155050/img/AeroGear.png" alt="AeroGear" />
+</div>
+</div>
+<div class="paragraph"><p>Again, make sure that "Copy items into destination group&#8217;s folder" and "Create Groups for any added folders" is checked.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_3_verify_installation">Step 3: Verify installation</h3>
+<div class="paragraph"><p>Now that our depenendecies are set up, it&#8217;s time to verify our installation. For this, we are going to build a simple application that will fetch the latest Tasks from the TODO server application that is deployed on OpenShift. The tasks will then be displayed on a standard UITableView component. Let&#8217;s start.</p></div>
+<div class="paragraph"><p>Click on the "AGViewController.h" on the Project Navigator and change the class to extend from UITableViewController.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>@<span style="color: #008080">interface</span> AGViewController <span style="color: #990000">:</span> UITableViewController</tt></pre></div></div>
+<div class="paragraph"><p>Now, click on the "AGViewController.m". First, we need to import the "AeroGear" library.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #000080">#import</span></span> <span style="color: #FF0000">"AeroGear.h"</span></tt></pre></div></div>
+<div class="paragraph"><p>Add an instance variable that will hold the tasks returned from the server.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>@<span style="color: #008080">implementation</span> AGViewController <span style="color: #FF0000">{</span>
+    <span style="color: #008080">NSArray</span> <span style="color: #990000">*</span>_tasks<span style="color: #990000">;</span>
+<span style="color: #FF0000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>Navigate to the viewDidLoad method and add the following:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #990000">-</span> <span style="color: #990000">(</span><span style="color: #009900">void</span><span style="color: #990000">)</span>viewDidLoad <span style="color: #FF0000">{</span>
+    <span style="color: #990000">[</span><span style="color: #008080">super</span> viewDidLoad<span style="color: #990000">];</span>
+
+    <span style="font-style: italic"><span style="color: #9A1900">// NSURL object:</span></span>
+    NSURL<span style="color: #990000">*</span> projectsURL <span style="color: #990000">=</span> <span style="color: #990000">[</span><span style="color: #008080">NSURL</span> URLWithString<span style="color: #990000">:</span>@<span style="color: #FF0000">"http://todo-aerogear.rhcloud.com/todo-server"</span><span style="color: #990000">];</span>
+
+    <span style="color: #008080">id&lt;AGPipe&gt;</span> tasksPipe<span style="color: #990000">;</span>
+
+    <span style="font-style: italic"><span style="color: #9A1900">// create the 'todo' pipeline, which contains the 'tasks' pipe:</span></span>
+    AGPipeline<span style="color: #990000">*</span> todo <span style="color: #990000">=</span> <span style="color: #990000">[</span><span style="color: #008080">AGPipeline</span> pipelineWithPipe<span style="color: #990000">:</span>@<span style="color: #FF0000">"tasks"</span> baseURL<span style="color: #990000">:</span><span style="color: #008080">projectsURL</span> type<span style="color: #990000">:</span>@<span style="color: #FF0000">"REST"</span><span style="color: #990000">];</span>  <span style="color: #990000">[</span><span style="color: #993399">1</span><span style="color: #990000">]</span>
+
+    tasksPipe <span style="color: #990000">=</span> <span style="color: #990000">[</span><span style="color: #008080">todo</span> get<span style="color: #990000">:</span>@<span style="color: #FF0000">"tasks"</span><span style="color: #990000">];</span> <span style="color: #990000">[</span><span style="color: #993399">2</span><span style="color: #990000">]</span>
+
+    <span style="color: #990000">[</span><span style="color: #008080">tasksPipe</span> read<span style="color: #990000">:^(</span><span style="color: #008080">id</span> responseObject<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>  <span style="color: #990000">[</span><span style="color: #993399">3</span><span style="color: #990000">]</span>
+
+        _tasks <span style="color: #990000">=</span> responseObject<span style="color: #990000">;</span> <span style="color: #990000">[</span><span style="color: #993399">4</span><span style="color: #990000">]</span>
+
+        <span style="color: #990000">[</span>self<span style="color: #990000">.</span><span style="color: #008080">tableView</span> reloadData<span style="color: #990000">];</span> <span style="color: #990000">[</span><span style="color: #993399">5</span><span style="color: #990000">]</span>
+
+    <span style="color: #FF0000">}</span> failure<span style="color: #990000">:^(</span><span style="color: #008080">NSError</span> <span style="color: #990000">*</span>error<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        <span style="font-weight: bold"><span style="color: #000000">NSLog</span></span><span style="color: #990000">(</span>@<span style="color: #FF0000">"An error has occured during fetch! </span><span style="color: #CC33CC">\n</span><span style="color: #FF0000">%@"</span><span style="color: #990000">,</span> error<span style="color: #990000">);</span>
+    <span style="color: #FF0000">}</span><span style="color: #990000">];</span>
+
+<span style="color: #FF0000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>Central to AeroGear is the concept of <a href="http://aerogear.github.com/aerogear-ios/Protocols/AGPipe.html">Pipeline</a> and <a href="http://aerogear.github.com/aerogear-ios/Protocols/AGPipe.html">Pipe</a>. The former represents a collection of server connections and the latter the connection itself. In [1] we initialize our Pipeline with the base URL of the remote server application, passing "REST" as the type of communication. (More types of communication are planned for ther future such as websockets). On [2] we extract the tasks pipe from the pipeline and on [3] we issue a "read" request to fetch the tasks from the remote application passing a success and failure block. If the fetch was successful, we assign the return result to our tasks object declared earlier [4] and we ask the tableview to reload itself to display the data.</p></div>
+<div class="paragraph"><p>Now what is left is to add the table data source methods.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #990000">-</span> <span style="color: #990000">(</span>NSInteger<span style="color: #990000">)</span>tableView<span style="color: #990000">:(</span>UITableView <span style="color: #990000">*)</span><span style="color: #008080">tableView</span> numberOfRowsInSection<span style="color: #990000">:(</span>NSInteger<span style="color: #990000">)</span>section
+<span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> <span style="color: #990000">[</span><span style="color: #008080">_tasks</span> count<span style="color: #990000">];</span>
+<span style="color: #FF0000">}</span>
+
+<span style="color: #990000">-</span> <span style="color: #990000">(</span>UITableViewCell <span style="color: #990000">*)</span>tableView<span style="color: #990000">:(</span>UITableView <span style="color: #990000">*)</span><span style="color: #008080">tableView</span> cellForRowAtIndexPath<span style="color: #990000">:(</span>NSIndexPath <span style="color: #990000">*)</span>indexPath
+<span style="color: #FF0000">{</span>
+    <span style="font-weight: bold"><span style="color: #0000FF">static</span></span> <span style="color: #008080">NSString</span> <span style="color: #990000">*</span>CellIdentifier <span style="color: #990000">=</span> @<span style="color: #FF0000">"Cell"</span><span style="color: #990000">;</span>
+    <span style="color: #008080">UITableViewCell</span> <span style="color: #990000">*</span>cell <span style="color: #990000">=</span> <span style="color: #990000">[</span><span style="color: #008080">tableView</span> dequeueReusableCellWithIdentifier<span style="color: #990000">:</span>CellIdentifier<span style="color: #990000">];</span>
+
+    <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #990000">(</span>cell <span style="color: #990000">==</span> nil<span style="color: #990000">)</span> <span style="color: #FF0000">{</span>
+        cell <span style="color: #990000">=</span> <span style="color: #990000">[[</span><span style="color: #008080">UITableViewCell</span> alloc<span style="color: #990000">]</span>initWithStyle<span style="color: #990000">:</span><span style="color: #008080">UITableViewCellStyleDefault</span> reuseIdentifier<span style="color: #990000">:</span>CellIdentifier<span style="color: #990000">];</span>
+    <span style="color: #FF0000">}</span>
+
+    <span style="color: #008080">NSUInteger</span> row <span style="color: #990000">=</span> <span style="color: #990000">[</span><span style="color: #008080">indexPath</span> row<span style="color: #990000">];</span>
+
+    cell<span style="color: #990000">.</span>textLabel<span style="color: #990000">.</span>text <span style="color: #990000">=</span> <span style="color: #990000">[[</span><span style="color: #008080">_tasks</span> objectAtIndex<span style="color: #990000">:</span>row<span style="color: #990000">]</span> objectForKey<span style="color: #990000">:</span>@<span style="color: #FF0000">"title"</span><span style="color: #990000">];</span>
+
+    <span style="font-weight: bold"><span style="color: #0000FF">return</span></span> cell<span style="color: #990000">;</span>
+<span style="color: #FF0000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>Time to run the project. Select Product&#8594;Run and if all goes well you will presented with the following screen.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dl.dropbox.com/u/155050/img/emulator.png" alt="Emulator" />
+</div>
+</div>
+<div class="paragraph"><p>Success! Your first iOS application build with AeroGear.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_next_steps">Next Steps</h3>
+<div class="paragraph"><p>You can download the source code of this project here</p></div>
+<div class="paragraph"><p>For a high level overview of AeroGear API and the Pipeline and Pipe concepts, click here. To browse the iOS API reference, have a look <a href="http://aerogear.github.com/aerogear-ios/index.html">here</a>. For a more complete example application that uses AeroGear have a look at the TODO application available <a href="https://github.com/aerogear/aerogear-todo-ios">here</a></p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2012-10-17 22:42:51 EEST
+</div>
+</div>
+</body>
+</html>
