@@ -7,19 +7,19 @@ This guide will help you to setup your development environment for aerogear, and
 
 Fire up Xcode and when presented with the welcome screen, choose "Create a new Xcode Project"
 
-image::img/welcome-screen.png[Welcome screen]
+image::https://dl.dropbox.com/u/155050/img/welcome-screen.png[Welcome screen]
 
 On the next screen, choose "Single-View Application"
 
-image::img/new-project-wizard.png[New Project]
+image::https://dl.dropbox.com/u/155050/img/new-project-wizard.png[New Project]
 
 Enter "AeroGearExample" in the Product Name field and "AG" as the class prefix. Leave the default options checked.
 
-image::img/project-details-screen.png[Details]
+image::https://dl.dropbox.com/u/155050/img/project-details-screen.png[Details]
 
 Xcode creates our project and we are presented with the default project screen.
 
-image::img/main-project-screen.png[Main Project Screen]
+image::https://dl.dropbox.com/u/155050/img/main-project-screen.png[Main Project Screen]
 
 Now that our project is created, its time to install required dependencies.
 
@@ -56,13 +56,13 @@ Extract the zip archives and when finished, time to add them to our project.
 
 First, we add AFNetworking. Click "File->Add files to AeroGearExample". In the dialog sheet that pops up, navigate to where AFNetworking code was extracted and select the AFNetworking folder
 
-image::img/AFNetworking.png[AFNetworking]
+image::https://dl.dropbox.com/u/155050/img/AFNetworking.png[AFNetworking]
 
 Make sure that "Copy items into destination group's folder" and "Create Groups for any added folders" is checked.
 
 Now time to add AeroGear library. Click again "File->Add files to AeroGearExample". In the dialog sheet that pops up, navigate to where AeroGear code was extracted and select the "AeroGear" folder.
 
-image::img/AeroGear.png[AeroGear]
+image::https://dl.dropbox.com/u/155050/img/AeroGear.png[AeroGear]
 
 Again, make sure that "Copy items into destination group's folder" and "Create Groups for any added folders" is checked.
 
@@ -149,14 +149,14 @@ Now what is left is to add the table data source methods.
 
 Time to run the project. Select Product->Run and if all goes well you will presented with the following screen.
 
-image::img/emulator.png[Emulator]
+image::https://dl.dropbox.com/u/155050/img/emulator.png[Emulator]
 
 Success! Your first iOS application build with AeroGear.
 
 === Next Steps
 
 You can download the source code of this project here
- 
+
 For a high level overview of AeroGear API and the Pipeline and Pipe concepts, click here. To browse the iOS API reference, have a look link:http://aerogear.github.com/aerogear-ios/index.html[here]. For a more complete example application that uses AeroGear have a look at the TODO application available link:https://github.com/aerogear/aerogear-todo-ios[here]  
 
 
